@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skills",
+  "info": {
+    "singularName": "skill",
+    "pluralName": "skills",
+    "displayName": "Skill",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SkillType": {
+      "type": "enumeration",
+      "enum": [
+        "Programming",
+        "Frontend",
+        "Backend",
+        "Hobby",
+        "Micro Technologies"
+      ],
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "about_mes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::about-me.about-me",
+      "mappedBy": "skills"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "skills"
+    }
+  }
+}
